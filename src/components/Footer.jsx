@@ -5,8 +5,8 @@ const Footer = () => {
     <footer className="w-full font-sans text-[#333]">
       {/* Upper Section: RERA Link */}
       <div className="py-12 text-center">
-        <h2 className="text-3xl font-bold mb-6">RERA Number</h2>
-        <p className="text-lg">
+        <h2 className="text-2xl mb-6">RERA Number</h2>
+        <p className="text-md">
           This project is RERA registered –{' '}
           <a 
             href="https://maharera.maharashtra.gov.in" 
@@ -20,14 +20,14 @@ const Footer = () => {
       </div>
 
       {/* Lower Section: Disclaimer */}
-      <div className="bg-[#eef6ff] px-6 py-10 md:px-20">
-        <div className="max-w-6xl mx-auto text-center leading-relaxed text-sm md:text-base">
+      <div className="bg-[#eef6ff] px-6 py-10 md:px-20 mb-6">
+        <div className="max-w-6xl mx-auto text-center leading-relaxed text-xs md:text-base">
           <p className="mb-4">
             <span className="font-bold">Disclaimer:</span> The content is for information purposes only and does not constitute an offer to avail of any service. Prices mentioned are subject to change without notice and properties mentioned are subject to availability. Images for representation purpose only. This is not the official website. Website maintained by Authorized Channel Partner Maha Rera. We may share data with rera registered brokers/companies for further procession.
           </p>
           
           {/* Links */}
-          <div className="flex justify-center space-x-2 text-blue-600 font-medium">
+          <div className="flex justify-center space-x-2 text-blue-600">
             <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
             <span>|</span>
             <a href="/terms-conditions" className="hover:underline">Terms & Conditions</a>

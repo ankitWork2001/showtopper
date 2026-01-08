@@ -1,9 +1,9 @@
 import React from 'react'
-import AllRoutes from './pages/AllRoutes'
+import PageLayout from './pages/PageLayout'
 
 const App = () => {
   return (
-    <AllRoutes />
+    <PageLayout />
   )
 }
 

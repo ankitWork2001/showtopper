@@ -4,11 +4,11 @@ const NRIServices = () => {
   return (
     <section className="bg-white py-16 px-6 lg:px-12 max-w-7xl mx-auto">
       {/* Section Heading */}
-      <h2 className="text-3xl font-bold text-slate-800 mb-10">NRI Services</h2>
+      <h2 className="text-2xl text-slate-800 mb-10">NRI Services</h2>
 
       {/* Content Text */}
       <div className="space-y-8">
-        <p className="text-gray-700 text-lg leading-relaxed text-justify md:text-left">
+        <p className="text-gray-700 text-md leading-relaxed text-justify md:text-left">
           We provide better, excellent, and different service from what is usual
           especially to NRI's. As we have huge team exclusively for NRI clients,
           We understand your demand and desire deeply and provides you with

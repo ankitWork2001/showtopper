@@ -1,17 +1,18 @@
 import React from 'react';
 
-const RightForm = () => {
+const RightForm = ({onRequestCallBack}) => {
   return (
-    <div className="max-w-md mx-auto bg-white min-h-screen flex flex-col shadow-lg border border-gray-100 sticky top-0">
+    <div className="hidden md:flex max-w-md mx-auto bg-white min-h-screen flex-col shadow-lg border border-gray-100 sticky top-0">
+
       {/* Header Section */}
       <div className="bg-slate-300 pt-0 flex flex-col items-center">
         {/* Phone Number Bar */}
-        <div className="bg-[#A67C48] text-white w-full py-1 rounded-b-3xl text-center text-lg shadow-md">
+        <div onClick={onRequestCallBack} className="bg-[#A67C48] text-white w-full py-1 rounded-b-3xl text-center text-lg hover:cursor-pointer shadow-md">
           +91 90821 64514
         </div>
         
         {/* Request Call Back Button */}
-        <button className="mt-1 mb-2 bg-[#A67C48] text-white px-10 py-1 rounded-lg text-lg shadow-inner hover:bg-[#8e693c] transition-colors">
+        <button onClick={onRequestCallBack} className="mt-1 mb-2 bg-[#A67C48] text-white px-10 py-1 rounded-lg text-lg shadow-inner hover:cursor-pointer hover:bg-[#8e693c] transition-colors">
           Request Call Back
         </button>
       </div>

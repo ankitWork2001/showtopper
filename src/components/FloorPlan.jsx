@@ -2,7 +2,7 @@ import React from 'react';
 import MasterPlanImage from '../assets/plans/MasterPlan.webp';
 import UnitPlanImage from '../assets/plans/UnitPlan.webp';
 
-const FloorPlan = () => {
+const FloorPlan = ({ onOfferPriceClick }) => {
   const plans = [
     {
       title: "Request Master Plan Layout",
@@ -45,7 +45,7 @@ const FloorPlan = () => {
             </div>
 
             {/* Action Button */}
-            <button className="mt-6 bg-gradient-to-r from-[#B07E4D] to-[#D99B5C] text-white px-10 py-2.5 rounded-full text-sm font-medium shadow-md hover:opacity-90 transition-opacity">
+            <button onClick={onOfferPriceClick} className="mt-6 bg-gradient-to-r from-[#B07E4D] to-[#D99B5C] text-white px-10 py-2.5 rounded-full text-sm font-medium shadow-md hover:opacity-90 transition-opacity hover:cursor-pointer">
               {plan.buttonText}
             </button>
           </div>

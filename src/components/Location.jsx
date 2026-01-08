@@ -52,9 +52,9 @@ const Location = () => {
   ];
 
   return (
-    <section id='location' className="bg-white py-16 px-6 max-w-7xl mx-auto">
+    <section id='location' className="bg-white py-16 px-2 max-w-7xl mx-auto">
       {/* Header Section */}
-      <div className="mb-10">
+      <div className="mb-1">
         <h2 className="text-3xl font-bold text-slate-800 mb-6">Location Details</h2>
         <p className="text-gray-700 text-lg leading-relaxed">
           Strategically located in <span className="font-semibold">Sector 20, Kharghar</span> — where every destination is within effortless reach via rail, metro, expressway, and airport routes.
@@ -62,7 +62,7 @@ const Location = () => {
       </div>
 
       {/* Map Section */}
-      <div className="w-full h-[450px] rounded-lg overflow-hidden border border-gray-200 shadow-sm mb-16">
+      <div className="w-full h-[450px] rounded-lg overflow-hidden border border-gray-200 shadow-sm mb-6">
         <iframe
           title="Satyam Metro Showstopper Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.3123456789!2d73.067!3d19.034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAyJzAyLjQiTiA3M8KwMDQnMDEuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
@@ -73,7 +73,7 @@ const Location = () => {
       </div>
 
       {/* Connectivity Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
         {locationData.map((section, index) => (
           <div key={index} className="flex flex-col">
             <h3 className="text-xl font-bold text-slate-900 border-b border-gray-300 pb-3 mb-6">

@@ -1,16 +1,18 @@
 import React from 'react';
+import MasterPlanImage from '../assets/plans/MasterPlan.webp';
+import UnitPlanImage from '../assets/plans/UnitPlan.webp';
 
 const FloorPlan = () => {
   const plans = [
     {
       title: "Request Master Plan Layout",
       buttonText: "View layout Plan",
-      img: "https://via.placeholder.com/600x400?text=Master+Plan+Layout", // Replace with actual master plan image
+      img: MasterPlanImage, // Replace with actual master plan image
     },
     {
       title: "Request Unit Plan Layout",
       buttonText: "View Floor Plan",
-      img: "https://via.placeholder.com/600x400?text=Unit+Plan+Layout", // Replace with actual unit plan image
+      img: UnitPlanImage, // Replace with actual unit plan image
     }
   ];
 
@@ -32,14 +34,14 @@ const FloorPlan = () => {
               <img 
                 src={plan.img} 
                 alt={plan.title} 
-                className="w-full h-full object-cover blur-[2px] group-hover:blur-none transition-all duration-300"
+                className="w-full h-full object-cover"
               />
               {/* Dark Overlay with Text */}
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+              {/* <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                 <span className="text-white text-xl font-bold px-4 text-center">
                   {plan.title}
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* Action Button */}

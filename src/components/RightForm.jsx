@@ -1,6 +1,23 @@
 import React from 'react';
 
 const RightForm = ({onRequestCallBack}) => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    mobile: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    console.log(formData);
+    setFormData({
+      name: '',
+      email: '',
+      mobile: ''
+    });
+  };
+
   return (
     <div className="hidden md:flex max-w-md mx-auto bg-white min-h-screen flex-col shadow-lg border border-gray-100 sticky top-0">
 
@@ -23,20 +40,26 @@ const RightForm = ({onRequestCallBack}) => {
           Pre-Register here for Best Offers
         </h2>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Name"
+            value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
             className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48] placeholder-gray-500"
           />
           <input
             type="email"
             placeholder="Email"
+            value={formData.email}
+            onChange={(e) => setFormData({...formData, email: e.target.value})}
             className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48] placeholder-gray-500"
           />
           <input
             type="tel"
             placeholder="Mobile"
+            value={formData.mobile}
+            onChange={(e) => setFormData({...formData, mobile: e.target.value})}
             className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48] placeholder-gray-500"
           />
 

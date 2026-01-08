@@ -21,57 +21,42 @@ const PageLayout = () => {
   const [isBrochureFormOpen, setIsBrochureFormOpen] = useState(false);
   const [isOfferPriceFormOpen, setIsOfferPriceFormOpen] = useState(false);
 
-  const handleRequestCallBack = () => {
-    setIsInterestFormOpen(true);
-  };
-  const handleCloseInterestForm = () => {
-    setIsInterestFormOpen(false);
-  };
-
-  const handleBrochureClick = () => {
-    setIsBrochureFormOpen(true);
-  };
-  const handleCloseBrochureForm = () => {
-    setIsBrochureFormOpen(false);
-  };
-
-  const handleOfferPriceClick = () => {
-    setIsOfferPriceFormOpen(true);
-  };
-  const handleCloseOfferPriceForm = () => {
-    setIsOfferPriceFormOpen(false);
-  };
-
-
   return (
     <div className="flex w-full min-h-screen">
       
       {/* Left Side */}
       <div className="w-full md:w-[80%]">
-        <Header onBrochureClick={handleBrochureClick} />
-        {isBrochureFormOpen && <BrochureForm onClose={handleCloseBrochureForm} />}
-        <Hero onRequestCallBack={handleRequestCallBack} />
+        <Header onBrochureClick={() => setIsBrochureFormOpen(true)} />
+        {isBrochureFormOpen && <BrochureForm onClose={() => setIsBrochureFormOpen(false)} />}
+
+        <Hero onRequestCallBack={() => setIsInterestFormOpen(true)} />
         <MobileForm />
         <About />
-        <Price onOfferPriceClick={handleOfferPriceClick} />
-        {isOfferPriceFormOpen && <OfferPriceForm onClose={handleCloseOfferPriceForm} />}
+
+        <Price onOfferPriceClick={() => setIsOfferPriceFormOpen(true)} />
+        {isOfferPriceFormOpen && <OfferPriceForm onClose={() => setIsOfferPriceFormOpen(false)} />}
+
         <Amenities />
         <Gallery />
-        <FloorPlan onOfferPriceClick={handleOfferPriceClick} />
+        <FloorPlan onOfferPriceClick={() => setIsOfferPriceFormOpen(true)} />
         <Location />
         <NRIServices />
         <Footer />
         <MobileFooter />
       </div>
 
-      {/* Right Side (Hidden on Mobile) */}
+      {/* Right Side (Desktop only) */}
       <div className="hidden md:block md:w-[20%]">
-        <RightForm onRequestCallBack={handleRequestCallBack}/>
-        {isInterestFormOpen && <InterestForm onClose={handleCloseInterestForm} />}
+        <RightForm onRequestCallBack={() => setIsInterestFormOpen(true)} />
       </div>
 
+      {/* ✅ MODALS – GLOBAL (ALL DEVICES) */}
+      {isInterestFormOpen && (
+        <InterestForm onClose={() => setIsInterestFormOpen(false)} />
+      )}
     </div>
-  )
-}
+  );
+};
+
 
 export default PageLayout

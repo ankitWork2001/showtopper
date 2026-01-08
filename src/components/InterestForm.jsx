@@ -2,6 +2,22 @@ import React, { useState } from 'react';
 import { X } from 'lucide-react'; // Optional: for a clean close icon
 
 const InterestForm = ({onClose}) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        mobile: '',
+        email: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log(formData);
+        setFormData({
+            name: '',
+            mobile: '',
+            email: ''
+        });
+    };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
@@ -36,16 +52,20 @@ const InterestForm = ({onClose}) => {
           </p>
 
           {/* Form Fields */}
-          <form className="w-full space-y-4">
+          <form onSubmit={handleSubmit} className="w-full space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
               <input
                 type="text"
                 placeholder="Name"
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
                 className="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A67C52]/50 placeholder:text-gray-400"
               />
               <input
                 type="text"
                 placeholder="Mobile"
+                value={formData.mobile}
+                onChange={(e) => setFormData({...formData, mobile: e.target.value})}
                 className="flex-1 px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A67C52]/50 placeholder:text-gray-400"
               />
             </div>
@@ -53,6 +73,8 @@ const InterestForm = ({onClose}) => {
             <input
               type="email"
               placeholder="Email"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
               className="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#A67C52]/50 placeholder:text-gray-400"
             />
 

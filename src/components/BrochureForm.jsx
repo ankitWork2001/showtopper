@@ -2,6 +2,23 @@ import React from 'react';
 import { User, Phone, Mail, X } from 'lucide-react';
 
 const BrochureForm = ({ onClose }) => {
+    const [formData, setFormData] = React.useState({
+        name: '',
+        mobile: '',
+        email: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log(formData);
+        setFormData({
+            name: '',
+            mobile: '',
+            email: ''
+        });
+    };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
       
@@ -22,7 +39,7 @@ const BrochureForm = ({ onClose }) => {
         </div>
 
         {/* Form Body */}
-        <div className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-6 space-y-4">
           
           {/* Name */}
           <div className="flex border border-gray-300 rounded-md overflow-hidden">
@@ -32,6 +49,8 @@ const BrochureForm = ({ onClose }) => {
             <input
               type="text"
               placeholder="Name"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
               className="w-full px-4 py-2 text-gray-600 outline-none placeholder-gray-400"
             />
           </div>
@@ -44,6 +63,8 @@ const BrochureForm = ({ onClose }) => {
             <input
               type="tel"
               placeholder="Mobile"
+                value={formData.mobile}
+                onChange={(e) => setFormData({...formData, mobile: e.target.value})}
               className="w-full px-4 py-2 text-gray-600 outline-none placeholder-gray-400"
             />
           </div>
@@ -56,18 +77,20 @@ const BrochureForm = ({ onClose }) => {
             <input
               type="email"
               placeholder="Email"
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
               className="w-full px-4 py-2 text-gray-600 outline-none placeholder-gray-400"
             />
           </div>
 
           {/* Submit */}
           <div className="flex justify-center pt-2">
-            <button className="bg-gradient-to-b from-[#d09a63] to-[#a67c4d] text-white px-12 py-3 rounded-full text-xl font-medium shadow-md hover:brightness-105 active:scale-95 transition-all">
+            <button type="submit" className="bg-gradient-to-b from-[#d09a63] to-[#a67c4d] text-white px-12 py-3 rounded-full text-xl font-medium shadow-md hover:brightness-105 active:scale-95 transition-all">
               Submit
             </button>
           </div>
 
-        </div>
+        </form>
       </div>
     </div>
   );

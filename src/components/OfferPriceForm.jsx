@@ -2,6 +2,20 @@ import React from 'react';
 import { User, Phone, X } from 'lucide-react'; // Using lucide-react for icons
 
 const OfferPriceForm = ({ onClose }) => {
+    const [formData, setFormData] = React.useState({
+        name: '',
+        mobile: ''
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        console.log(formData);
+        setFormData({
+            name: '',
+            mobile: ''
+        });
+    };
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
@@ -19,7 +33,7 @@ const OfferPriceForm = ({ onClose }) => {
         </div>
 
         {/* Form Body */}
-        <form className="p-8 space-y-6" onSubmit={(e) => e.preventDefault()}>
+        <form className="p-8 space-y-6" onSubmit={handleSubmit}>
           
           {/* Name Input */}
           <div className="flex border border-gray-400 rounded-md overflow-hidden focus-within:ring-1 focus-within:ring-[#a37a4c]">
@@ -29,6 +43,8 @@ const OfferPriceForm = ({ onClose }) => {
             <input
               type="text"
               placeholder="Name *"
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
               className="w-full p-3 outline-none text-gray-600 placeholder:text-gray-400"
               required
             />
@@ -42,6 +58,8 @@ const OfferPriceForm = ({ onClose }) => {
             <input
               type="tel"
               placeholder="Mobile *"
+                value={formData.mobile}
+                onChange={(e) => setFormData({...formData, mobile: e.target.value})}
               className="w-full p-3 outline-none text-gray-600 placeholder:text-gray-400"
               required
             />

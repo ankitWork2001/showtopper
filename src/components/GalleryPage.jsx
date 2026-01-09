@@ -31,7 +31,7 @@ const Gallery = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-4 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold text-slate-800 text-center mb-16">
@@ -45,7 +45,7 @@ const Gallery = () => {
               key={image.id} 
               className="overflow-hidden rounded-sm shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer"
             >
-              <div className="aspect-[4/3] w-full bg-gray-100">
+              <div className="aspect-4/3 w-full bg-gray-100">
                 <img
                   src={image.src}
                   alt={image.alt}

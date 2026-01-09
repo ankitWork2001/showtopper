@@ -16,7 +16,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="max-w-7xl mx-auto px-6 py-16 bg-white scroll-mt-20"
+      className="max-w-7xl mx-auto px-6 py-4 bg-white scroll-mt-20"
     >
       <h2 className="text-3xl font-semibold text-[#A67C48] text-center mb-10">
         Satyam Metro Showstopper
@@ -85,7 +85,7 @@ const About = () => {
 
             {/* Gradient Overlay to fade text when collapsed */}
             {!isExpanded && (
-              <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white to-transparent" />
+              <div className="absolute bottom-0 left-0 w-full h-20 bg-linear-to-t from-white to-transparent" />
             )}
           </div>
 
@@ -106,7 +106,7 @@ const About = () => {
         </div>
 
         {/* Poster Column */}
-        <div className="w-full lg:w-[250px] flex-shrink-0 mx-auto">
+        <div className="w-full lg:w-62.5 shrink-0 mx-auto">
           <div ref={posterRef} className="rounded-lg overflow-hidden">
             <img
               src={posterImage}

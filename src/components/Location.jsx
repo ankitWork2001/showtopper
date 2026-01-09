@@ -52,7 +52,7 @@ const Location = () => {
   ];
 
   return (
-    <section id='location' className="bg-white py-16 px-2 max-w-7xl mx-auto">
+    <section id='location' className="bg-white py-4 px-2 max-w-7xl mx-auto">
       {/* Header Section */}
       <div className="mb-1">
         <h2 className="text-3xl font-bold text-slate-800 mb-6">Location Details</h2>
@@ -62,7 +62,7 @@ const Location = () => {
       </div>
 
       {/* Map Section */}
-      <div className="w-full h-[450px] rounded-lg overflow-hidden border border-gray-200 shadow-sm mb-6">
+      <div className="w-full h-112.5 rounded-lg overflow-hidden border border-gray-200 shadow-sm mb-6">
         <iframe
           title="Satyam Metro Showstopper Location"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.3123456789!2d73.067!3d19.034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAyJzAyLjQiTiA3M8KwMDQnMDEuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
@@ -82,7 +82,7 @@ const Location = () => {
             <ul className="space-y-4">
               {section.items.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 group">
-                  <span className="text-[#A67C48] font-bold text-lg mt-[-2px]">✦</span>
+                  <span className="text-[#A67C48] font-bold text-lg -mt-0.5">✦</span>
                   <span className="text-gray-700 text-[15px] font-medium group-hover:text-black transition-colors">
                     {item}
                   </span>

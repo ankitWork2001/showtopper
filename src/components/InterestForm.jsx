@@ -135,7 +135,7 @@ const InterestForm = ({ onClose }) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-gradient-to-b from-[#B88A5B] to-[#92643B] text-white text-xl px-16 py-3 rounded-full shadow-lg hover:brightness-110 active:scale-95"
+                className="bg-linear-to-b from-[#B88A5B] to-[#92643B] text-white text-xl px-16 py-3 rounded-full shadow-lg hover:brightness-110 active:scale-95"
               >
                 {loading ? 'Submitting...' : 'Submit'}
               </button>

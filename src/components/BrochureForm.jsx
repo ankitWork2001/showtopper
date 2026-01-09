@@ -129,7 +129,7 @@ const BrochureForm = ({ onClose }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-b from-[#d09a63] to-[#a67c4d] text-white py-3 rounded-full text-lg"
+            className="w-full bg-linear-to-b from-[#d09a63] to-[#a67c4d] text-white py-3 rounded-full text-lg"
           >
             {loading ? 'Sending...' : 'Submit'}
           </button>

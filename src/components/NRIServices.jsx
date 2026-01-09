@@ -2,7 +2,7 @@ import React from "react";
 
 const NRIServices = () => {
   return (
-    <section className="bg-white py-16 px-6 lg:px-12 max-w-7xl mx-auto">
+    <section className="bg-white py-4 px-6 lg:px-12 max-w-7xl mx-auto">
       {/* Section Heading */}
       <h2 className="text-2xl text-slate-800 mb-10">NRI Services</h2>
 

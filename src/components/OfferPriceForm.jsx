@@ -71,7 +71,7 @@ const OfferPriceForm = ({ onClose }) => {
 
           {/* Name */}
           <div className="flex border border-gray-400 rounded-md overflow-hidden">
-            <div className="bg-[#546671] p-3 min-w-[50px] flex justify-center">
+            <div className="bg-[#546671] p-3 min-w-12.5 flex justify-center">
               <User className="text-white" size={20} />
             </div>
             <input
@@ -88,7 +88,7 @@ const OfferPriceForm = ({ onClose }) => {
 
           {/* Mobile */}
           <div className="flex border border-gray-400 rounded-md overflow-hidden">
-            <div className="bg-[#546671] p-3 min-w-[50px] flex justify-center">
+            <div className="bg-[#546671] p-3 min-w-12.5 flex justify-center">
               <Phone className="text-white" size={20} />
             </div>
             <input

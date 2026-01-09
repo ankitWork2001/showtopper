@@ -28,7 +28,7 @@ const secondSwiperAmenities = amenities.filter((_, i) => i % 2 !== 0);
 
 
   return (
-    <section id='amenities' className="bg-white py-10 px-5">
+    <section id='amenities' className="bg-white py-4 px-5">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-10">
           <h2 className="text-[28px] font-bold text-[#333] leading-tight mb-2">
@@ -55,7 +55,7 @@ const secondSwiperAmenities = amenities.filter((_, i) => i % 2 !== 0);
             <img
               src={item.img}
               alt={item.title}
-              className="w-full h-[230px] object-cover"
+              className="w-full h-57.5 object-cover"
             />
           </div>
           <span className="text-[16px] font-bold uppercase">
@@ -83,7 +83,7 @@ const secondSwiperAmenities = amenities.filter((_, i) => i % 2 !== 0);
             <img
               src={item.img}
               alt={item.title}
-              className="w-full h-[230px] object-cover"
+              className="w-full h-57.5 object-cover"
             />
           </div>
           <span className="text-[16px] font-bold uppercase">
@@ -100,7 +100,7 @@ const secondSwiperAmenities = amenities.filter((_, i) => i % 2 !== 0);
         <div className="hidden lg:grid lg:grid-cols-4 gap-12">
           {amenities.map((item, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <div className="w-full aspect-[4/3] overflow-hidden rounded-[20px] mb-4 shadow-sm">
+              <div className="w-full aspect-4/3 overflow-hidden rounded-[20px] mb-4 shadow-sm">
                 <img 
                   src={item.img} 
                   alt={item.title} 

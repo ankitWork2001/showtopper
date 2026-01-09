@@ -17,7 +17,7 @@ const FloorPlan = ({ onOfferPriceClick }) => {
   ];
 
   return (
-    <section id='floorplan' className="bg-white py-16 px-6 max-w-7xl mx-auto">
+    <section id='floorplan' className="bg-white py-4 px-6 max-w-7xl mx-auto">
       {/* Page Title */}
       <h2 className="text-3xl font-semibold text-slate-800 text-center mb-16">
         Satyam Metro Showstopper Floor Plans
@@ -30,7 +30,7 @@ const FloorPlan = ({ onOfferPriceClick }) => {
             className="w-full max-w-md border border-orange-200 p-4 bg-white shadow-sm flex flex-col items-center"
           >
             {/* Image Container with Overlay */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden group cursor-pointer">
+            <div className="relative w-full aspect-4/3 overflow-hidden group cursor-pointer">
               <img 
                 src={plan.img} 
                 alt={plan.title} 
@@ -45,7 +45,7 @@ const FloorPlan = ({ onOfferPriceClick }) => {
             </div>
 
             {/* Action Button */}
-            <button onClick={onOfferPriceClick} className="mt-6 bg-gradient-to-r from-[#B07E4D] to-[#D99B5C] text-white px-10 py-2.5 rounded-full text-sm font-medium shadow-md hover:opacity-90 transition-opacity hover:cursor-pointer">
+            <button onClick={onOfferPriceClick} className="mt-6 bg-linear-to-r from-[#B07E4D] to-[#D99B5C] text-white px-10 py-2.5 rounded-full text-sm font-medium shadow-md hover:opacity-90 transition-opacity hover:cursor-pointer">
               {plan.buttonText}
             </button>
           </div>

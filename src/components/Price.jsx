@@ -1,4 +1,5 @@
 import React from "react";
+import detailsheet from "../assets/Prices/detailsheet.jpg";
 
 const Price = ({ onOfferPriceClick }) => {
   const priceData = [
@@ -95,11 +96,11 @@ const Price = ({ onOfferPriceClick }) => {
         {/* --- RIGHT PREVIEW SECTION --- */}
         <div className="w-full lg:w-[320px] flex-shrink-0 flex flex-col items-center">
           <div className="border border-orange-300 p-2 bg-white shadow-sm w-full">
-            <div className="border border-gray-300 aspect-[3/2.2] relative overflow-hidden bg-white group cursor-zoom-in">
+            <div className="border border-gray-300 aspect-[3/2.2] relative overflow-hidden backdrop-blur-2xl bg-white group">
               <img
-                src="https://via.placeholder.com/300x400?text=Detail+Sheet+Preview"
+                src={detailsheet}
                 alt="Payment Schedule"
-                className="w-full h-full object-cover opacity-80"
+                className="w-full h-full object-cover opacity-80 "
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/5 group-hover:bg-transparent transition-colors">
                 <span className="sr-only">

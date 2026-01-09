@@ -12,8 +12,10 @@ import {
   X,
 } from "lucide-react";
 import logo from "../assets/showstopper-logo.webp";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ onBrochureClick }) => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -28,6 +30,18 @@ const Header = ({ onBrochureClick }) => {
     { name: "Floor Plan", target: "floorplan", icon: <Layout size={18} /> },
     { name: "Location", target: "location", icon: <MapPin size={18} /> },
   ];
+
+  const handleNavClick = (target) => {
+    navigate("/");
+    setIsOpen(false);
+
+    setTimeout(() => {
+      const el = document.getElementById(target);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 120);
+  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-100 font-sans">
@@ -46,23 +60,18 @@ const Header = ({ onBrochureClick }) => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
-            <Link
+            <span
               key={link.name}
-              to={link.target} // Matches the ID in your section
-              spy={true} // Makes the link "active" when scrolling
-              smooth={true} // Enables animation
-              offset={-70} // Offsets for the sticky header height
-              duration={500} // Animation speed
-              activeClass="text-indigo-700 border-b-2 border-indigo-700" // UI indicator
+              onClick={() => handleNavClick(link.target)}
               className="flex items-center gap-1 cursor-pointer hover:text-indigo-700 transition-colors py-5"
             >
               {link.icon} {link.name}
-            </Link>
+            </span>
           ))}
 
           <button
             onClick={onBrochureClick}
-            className="flex items-center gap-2 bg-[#FF7F5C] text-white px-4 py-2 rounded shadow-md hover:bg-[#e06b4a] hover:cursor-pointer transition-all ml-4"
+            className="flex items-center gap-2 bg-[#FF7F5C] text-white px-4 py-2 rounded shadow-md hover:bg-[#e06b4a] transition-all ml-4"
           >
             <Download size={16} /> BROCHURE
           </button>
@@ -80,31 +89,27 @@ const Header = ({ onBrochureClick }) => {
       </div>
 
       {/* Mobile Menu Dropdown */}
-<div
-  className={`lg:hidden fixed left-0 w-full bg-white shadow-2xl transition-all duration-300 ease-in-out z-50 
-    ${isOpen 
-      ? "top-14 opacity-100 translate-y-0 visible" 
-      : "top-10 opacity-0 -translate-y-4 invisible pointer-events-none"
+      <div
+        className={`lg:hidden fixed left-0 w-full bg-white shadow-2xl transition-all duration-300 ease-in-out z-50 
+    ${
+      isOpen
+        ? "top-14 opacity-100 translate-y-0 visible"
+        : "top-10 opacity-0 -translate-y-4 invisible pointer-events-none"
     }`}
->
-  <div className="px-6 py-6 space-y-4 border-t border-gray-100">
-    {navLinks.map((link) => (
-      <Link
-        key={link.name}
-        to={link.target}
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-        onClick={() => setIsOpen(false)}
-        className="flex items-center gap-3 text-slate-700 font-medium py-3 border-b border-gray-50 cursor-pointer active:bg-gray-50 transition-colors"
       >
-        <span className="text-indigo-700">{link.icon}</span>
-        {link.name}
-      </Link>
-    ))}
-  </div>
-</div>
+        <div className="px-6 py-6 space-y-4 border-t border-gray-100">
+          {navLinks.map((link) => (
+            <div
+              key={link.name}
+              onClick={() => handleNavClick(link.target)}
+              className="flex items-center gap-3 text-slate-700 font-medium py-3 border-b border-gray-50 cursor-pointer active:bg-gray-50 transition-colors"
+            >
+              <span className="text-indigo-700">{link.icon}</span>
+              {link.name}
+            </div>
+          ))}
+        </div>
+      </div>
     </nav>
   );
 };

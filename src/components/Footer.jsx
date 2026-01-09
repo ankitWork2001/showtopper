@@ -28,9 +28,7 @@ const Footer = () => {
           
           {/* Links */}
           <div className="flex justify-center space-x-2 text-blue-600">
-            <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
-            <span>|</span>
-            <a href="/terms-conditions" className="hover:underline">Terms & Conditions</a>
+            <a href="/privacy" className="hover:underline">Privacy Policy | Terms & Conditions</a>
           </div>
         </div>
       </div>

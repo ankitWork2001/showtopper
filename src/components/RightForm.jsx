@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import emailjs from '@emailjs/browser';
-import { emailKeys } from '../key/key';
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { emailKeys } from "../key/key";
 
-const RightForm = ({ onRequestCallBack }) => {
+const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
+    name: "",
+    email: "",
+    mobile: "",
   });
 
   const [loading, setLoading] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showFailureAlert, setShowFailureAlert] = useState(false);
+  const [showChatBot, setShowChatBot] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const RightForm = ({ onRequestCallBack }) => {
       )
       .then(() => {
         setShowSuccessAlert(true);
-        setFormData({ name: '', email: '', mobile: '' });
+        setFormData({ name: "", email: "", mobile: "" });
         setLoading(false);
       })
       .catch((error) => {
@@ -42,7 +43,6 @@ const RightForm = ({ onRequestCallBack }) => {
 
   return (
     <div className="hidden md:flex max-w-md mx-auto bg-white min-h-screen flex-col shadow-lg border border-gray-100 sticky top-0">
-
       {/* Header */}
       <div className="bg-slate-300 flex flex-col items-center">
         <div
@@ -62,7 +62,6 @@ const RightForm = ({ onRequestCallBack }) => {
 
       {/* Form Section */}
       <div className="px-2 py-4 flex flex-col">
-
         <h2 className="text-center text-black text-md mb-2">
           Pre-Register here for Best Offers
         </h2>
@@ -84,9 +83,7 @@ const RightForm = ({ onRequestCallBack }) => {
             type="text"
             placeholder="Name"
             value={formData.name}
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
             className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
           />
@@ -119,21 +116,36 @@ const RightForm = ({ onRequestCallBack }) => {
               disabled={loading}
               className="bg-gradient-to-b from-[#B8864E] to-[#D99B5C] text-white px-6 py-2.5 rounded-full text-sm shadow-md hover:opacity-90"
             >
-              {loading ? 'Submitting...' : 'Submit'}
+              {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
       </div>
 
-      {/* WhatsApp */}
-      <div className="mt-auto p-6 flex justify-end">
-        <div className="bg-white rounded-full p-1 shadow-xl cursor-pointer">
+      {/* Floating Buttons */}
+      <div className="mt-auto p-6 flex justify-end gap-3">
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/919082164514"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-white rounded-full p-1 shadow-xl hover:scale-110 transition"
+        >
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
             alt="WhatsApp"
             className="w-12 h-12"
           />
-        </div>
+        </a>
+        {/* Chatbot Button */}
+        <button
+          onClick={onChatBotClick}
+          className="bg-gradient-to-br from-[#9e7242] to-[#f09051] rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:scale-110 transition"
+          title="Chat with us"
+        >
+          🤖
+        </button>
+
       </div>
     </div>
   );

@@ -15,11 +15,14 @@ import MobileFooter from '../components/MobileFooter'
 import InterestForm from '../components/InterestForm'
 import BrochureForm from '../components/BrochureForm'
 import OfferPriceForm from '../components/OfferPriceForm'
+import ChatBot from '../chatbot/chatbot'
 
 const PageLayout = () => {
   const [isInterestFormOpen, setIsInterestFormOpen] = useState(false);
   const [isBrochureFormOpen, setIsBrochureFormOpen] = useState(false);
   const [isOfferPriceFormOpen, setIsOfferPriceFormOpen] = useState(false);
+  const [openChatBot, setOpenChatBot] = useState(false);
+
 
   return (
     <div className="flex w-full min-h-screen">
@@ -47,13 +50,17 @@ const PageLayout = () => {
 
       {/* Right Side (Desktop only) */}
       <div className="hidden md:block md:w-[20%]">
-        <RightForm onRequestCallBack={() => setIsInterestFormOpen(true)} />
+        <RightForm
+  onRequestCallBack={() => setIsInterestFormOpen(true)}
+  onChatBotClick={() => setOpenChatBot(true)}
+/>
       </div>
 
       {/* ✅ MODALS – GLOBAL (ALL DEVICES) */}
       {isInterestFormOpen && (
         <InterestForm onClose={() => setIsInterestFormOpen(false)} />
       )}
+    <ChatBot open={openChatBot} setOpen={setOpenChatBot} />
     </div>
   );
 };

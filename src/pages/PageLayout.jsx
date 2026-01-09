@@ -15,7 +15,7 @@ import MobileFooter from '../components/MobileFooter'
 import InterestForm from '../components/InterestForm'
 import BrochureForm from '../components/BrochureForm'
 import OfferPriceForm from '../components/OfferPriceForm'
-import ChatBot from '../chatbot/chatbot'
+import ChatBot from '../chatbot/Chatbot'
 
 const PageLayout = () => {
   const [isInterestFormOpen, setIsInterestFormOpen] = useState(false);

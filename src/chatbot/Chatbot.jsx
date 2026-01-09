@@ -170,13 +170,13 @@ export default function ChatBot({open = true, setOpen}) {
       {open && (
         <div className="fixed bottom-4 right-4 z-50 max-w-sm w-full">
           {/* Chat Window */}
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[600px]">
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col h-150">
             {/* Header */}
             <div
-              className="p-4 text-white flex items-center gap-3 flex-shrink-0"
+              className="p-4 text-white flex items-center gap-3 shrink-0"
               style={{ background: "linear-gradient(135deg, #9e7242 0%, #f09051 100%)" }}
             >
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden">
+              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 overflow-hidden">
                 <div className="h-3 w-3 rounded-full bg-green-400 absolute top-4 left-12"></div>
                 <img 
                   src={currentBot.image}
@@ -199,7 +199,7 @@ export default function ChatBot({open = true, setOpen}) {
                 <div key={msg.id}>
                   {msg.sender === "bot" ? (
                     <div className="flex gap-2">
-                      <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                      <div className="w-8 h-8 rounded-full shrink-0 flex items-center justify-center overflow-hidden">
                         <img 
                           src={currentBot.image}
                           alt="Bot" 
@@ -244,7 +244,7 @@ export default function ChatBot({open = true, setOpen}) {
 
               {isLoading && (
                 <div className="flex gap-2">
-                  <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+                  <div className="w-8 h-8 rounded-full shrink-0 flex items-center justify-center overflow-hidden">
                     <img 
                       src={currentBot.image}
                       alt="Bot" 
@@ -337,7 +337,7 @@ export default function ChatBot({open = true, setOpen}) {
 
             {/* Input Area */}
             {(conversationStep === "name" || conversationStep === "phone" || conversationStep === "message") && (
-              <div className="p-4 border-t bg-white flex-shrink-0 space-y-3">
+              <div className="p-4 border-t bg-white shrink-0 space-y-3">
                 <div className="flex gap-2">
                   <div className="flex-1 flex items-center gap-2 border-2 rounded-lg px-3 border-gray-300">
                     {conversationStep === "name" ? (
@@ -380,7 +380,7 @@ export default function ChatBot({open = true, setOpen}) {
 
             {/* Confirmation State */}
             {conversationStep === "confirmation" && (
-              <div className="p-4 border-t bg-white flex-shrink-0 text-center space-y-2">
+              <div className="p-4 border-t bg-white shrink-0 text-center space-y-2">
                 <p className="text-sm font-medium text-gray-700">✅ Your response has been submitted</p>
                 <p className="text-xs text-gray-500">Our team will contact you soon</p>
               </div>

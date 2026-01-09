@@ -21,7 +21,7 @@ const Price = ({ onOfferPriceClick }) => {
 
       <div className="flex flex-col lg:flex-row gap-8 items-start">
         {/* --- PRICING SECTION --- */}
-        <div className="flex-grow w-full">
+        <div className="grow w-full">
           {/* Desktop Table: Hidden on Mobile, Visible on LG+ */}
           <div className="hidden lg:block border border-orange-200 rounded-sm overflow-hidden">
             <table className="w-full text-left border-collapse">
@@ -94,7 +94,7 @@ const Price = ({ onOfferPriceClick }) => {
         </div>
 
         {/* --- RIGHT PREVIEW SECTION --- */}
-        <div className="w-full lg:w-[320px] flex-shrink-0 flex flex-col items-center">
+        <div className="w-full lg:w-[320px] shrink-0 flex flex-col items-center">
           <div className="border border-orange-300 p-2 bg-white shadow-sm w-full">
             <div className="border border-gray-300 aspect-[3/2.2] relative overflow-hidden backdrop-blur-2xl bg-white group">
               <img

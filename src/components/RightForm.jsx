@@ -114,7 +114,7 @@ const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-gradient-to-b from-[#B8864E] to-[#D99B5C] text-white px-6 py-2.5 rounded-full text-sm shadow-md hover:opacity-90"
+              className="bg-linear-to-b from-[#B8864E] to-[#D99B5C] text-white px-6 py-2.5 rounded-full text-sm shadow-md hover:opacity-90"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>
@@ -140,7 +140,7 @@ const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
         {/* Chatbot Button */}
         <button
           onClick={onChatBotClick}
-          className="bg-gradient-to-br from-[#9e7242] to-[#f09051] rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:scale-110 transition"
+          className="bg-linear-to-br from-[#9e7242] to-[#f09051] rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:scale-110 transition"
           title="Chat with us"
         >
           🤖

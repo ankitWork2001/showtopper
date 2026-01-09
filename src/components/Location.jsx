@@ -73,13 +73,13 @@ const Location = () => {
       </div>
 
       {/* Connectivity Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 px-8">
         {locationData.map((section, index) => (
           <div key={index} className="flex flex-col">
             <h3 className="text-xl font-bold text-slate-900 border-b border-gray-300 pb-3 mb-6">
               {section.category}
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-2">
               {section.items.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3 group">
                   <span className="text-[#A67C48] font-bold text-lg -mt-0.5">✦</span>

@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className="w-full font-sans text-[#333]">
       {/* Upper Section: RERA Link */}
-      <div className="py-12 text-center">
-        <h2 className="text-2xl mb-6">RERA Number</h2>
+      <div className="py-2 text-center">
+        <h2 className="text-2xl mb-2">RERA Number</h2>
         <p className="text-md">
           This project is RERA registered –{' '}
           <a 

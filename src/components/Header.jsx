@@ -11,6 +11,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import logo from "../assets/showstopper-logo.webp";
 
 const Header = ({ onBrochureClick }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +31,14 @@ const Header = ({ onBrochureClick }) => {
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-[100] font-sans">
-      <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo - Also scrolls to top */}
         <div className="flex items-center cursor-pointer">
           <Link to="hero" smooth={true} duration={500}>
             <img
-              src="https://tse4.mm.bing.net/th/id/OIP.6Zr0GvntbuQyIT5j7iLqHwHaEQ?w=1958&h=1125&rs=1&pid=ImgDetMain&o=7&rm=3"
+              src={logo}
               alt="Logo"
-              className="h-12 w-30 border border-amber-900 p-1 bg-black"
+              className="h-15 w-46 border border-amber-900 p-1 bg-black"
             />
           </Link>
         </div>

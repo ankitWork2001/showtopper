@@ -1,21 +1,26 @@
 import React from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
 import 'swiper/css';
-// Import required modules
 import { Autoplay } from 'swiper/modules';
+import clubhouse from '../assets/Amenities/clubhouse.jpg';
+import playarea from '../assets/Amenities/playarea.jpg';
+import pool from '../assets/Amenities/pool.jpg';
+import gymnasium from '../assets/Amenities/gymnasium.jpg';
+import games from '../assets/Amenities/games.jpg';
+import seniorcitizens from '../assets/Amenities/seniorcitizens.jpg';
+import spa from '../assets/Amenities/spa.jpg';
+import running from '../assets/Amenities/running.jpg';
 
 const Amenities = () => {
   const amenities = [
-    { title: "JOGGING TRACK", img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=500" },
-    { title: "SENIOR CITIZEN CORNER", img: "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?q=80&w=500" },
-    { title: "INDOOR GAMES", img: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=500" },
-    { title: "SWIMMING POOL", img: "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=500" },
-    { title: "KIDS PLAY AREA", img: "https://images.unsplash.com/photo-1537655780520-1e392ede8139?q=80&w=500" },
-    { title: "OUTDOOR GYM", img: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=500" },
-    { title: "CLUB HOUSE", img: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=500" },
-    { title: "SPA", img: "https://images.unsplash.com/photo-1544161515-4af6b1d462c2?q=80&w=500" },
+    { title: "JOGGING TRACK", img: running },
+    { title: "SENIOR CITIZEN CORNER", img: seniorcitizens },
+    { title: "INDOOR GAMES", img: games },
+    { title: "SWIMMING POOL", img: pool },
+    { title: "KIDS PLAY AREA", img: playarea },
+    { title: "OUTDOOR GYM", img: gymnasium },
+    { title: "CLUB HOUSE", img: clubhouse },
+    { title: "SPA", img: spa },
   ];
 
   const firstSwiperAmenities = amenities.filter((_, i) => i % 2 === 0);

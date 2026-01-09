@@ -2,9 +2,10 @@ import React from "react";
 
 const Price = ({ onOfferPriceClick }) => {
   const priceData = [
-    { type: "2 BHK", area: "900 to 1000 Sq.ft", price: "₹ On Request" },
-    { type: "3 BHK", area: "1400 to 1550 Sq.ft", price: "₹ On Request" },
-    { type: "4 BHK", area: "2300 to 2500 Sq.ft", price: "₹ On Request" },
+    { type: "2 BHK", area: "900 to 1000 Sq.ft", price: "2.4 cr - 2.65 cr" },
+    { type: "Suite - Lux 3 BHK", area: "1400 to 1550 Sq.ft", price: "3.5 cr - 3.8 cr" },
+    { type: "Suite - Couture 3 BHK", area: "1700 to 1850 Sq.ft", price: "3.8 cr - 4.10 cr" },
+    { type: "Suite - Atelier 4 BHK", area: "2300 to 2500 Sq.ft", price: "5.4 cr - 6 cr" },
   ];
 
   return (

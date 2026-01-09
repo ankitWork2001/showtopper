@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import posterImage from "../assets/Poster/ShowStopper_Poster.jpeg";
 
 const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -106,11 +107,11 @@ const About = () => {
 
         {/* Poster Column */}
         <div className="w-full lg:w-[250px] flex-shrink-0 mx-auto">
-          <div ref={posterRef} className="shadow-lg rounded-lg overflow-hidden bg-amber-500">
+          <div ref={posterRef} className="rounded-lg overflow-hidden">
             <img
-              src="/assets/showstopper-poster.jpg"
+              src={posterImage}
               alt="Satyam Metro Showstopper Poster"
-              className="w-full h-100 object-cover"
+              className="w-full h-100 object-contain"
             />
           </div>
         </div>

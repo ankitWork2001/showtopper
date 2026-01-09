@@ -1,26 +1,31 @@
 import React from 'react';
+import interior1 from '../assets/Gallery/interior1.png';
+import interior2 from '../assets/Gallery/interior2.jpg';
+import interior3 from '../assets/Gallery/interior3.webp';
+import interior4 from '../assets/Gallery/interior4.webp';
+
 
 const Gallery = () => {
   // Array of gallery items based on the screenshot
   const galleryImages = [
     {
       id: 1,
-      src: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=800", // Fashion show/Luxury placeholder
-      alt: "Codename Showstopper Fashion Icon"
+      src: interior1,
+      alt: "Interior Design View"
     },
     {
       id: 2,
-      src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800", // Living room 1
+      src: interior2,
       alt: "Satyam Metro Showstopper Interior View"
     },
     {
       id: 3,
-      src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800", // Living room 2
+      src: interior3,
       alt: "Modern Apartment Design"
     },
     {
       id: 4,
-      src: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800", // Lobby/Office
+      src: interior4,
       alt: "Premium Building Lobby"
     }
   ];

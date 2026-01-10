@@ -138,34 +138,25 @@ const handleSubmit = async (e) => {
               {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
-        </form>
-      </div>
-
-      {/* Floating Buttons */}
-      <div className="mt-auto p-6 flex justify-end gap-3">
-        {/* WhatsApp Button */}
+           <div className="mt-auto p-6">
         <a
-          href="https://wa.me/919082164514"
+          href="https://wa.me/919082164514?text=Hi%20this%20side%20satyam%20developer%20how%20can%20i%20help%20you"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white rounded-full p-1 shadow-xl hover:scale-110 transition"
+          className="flex items-center gap-3 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-all duration-200 group"
         >
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
             alt="WhatsApp"
-            className="w-12 h-12"
+            className="w-5 h-5 group-hover:scale-110 transition-transform duration-200"
           />
+          <span className="text-gray-700 font-medium text-sm">Get Instant Response</span>
         </a>
-        {/* Chatbot Button */}
-        <button
-          onClick={onChatBotClick}
-          className="bg-linear-to-br from-[#9e7242] to-[#f09051] rounded-full w-14 h-14 flex items-center justify-center shadow-xl hover:scale-110 transition"
-          title="Chat with us"
-        >
-          🤖
-        </button>
-
       </div>
+        </form>
+      </div>
+
+     
     </div>
   );
 };

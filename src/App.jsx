@@ -1,9 +1,30 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PublicLayout from "./layouts/PublicLayout";
+import AdminLayout from "./layouts/AdminLayout";
 
-const App = () => {
+import HomePage from "./pages/HomePage";
+import PrivacyPage from "./pages/PrivacyPage";
+import AdminPage from "./pages/AdminPage";
+
+function App() {
   return (
-    <div className='bg-background'>App</div>
-  )
+    <BrowserRouter>
+      <Routes>
+
+        {/* 🌐 Public Pages */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
+        </Route>
+
+        {/* 🔐 Admin Pages */}
+        <Route element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { emailKeys } from "../key/key";
+import { contactConfig } from "../config/credential";
 import axios from 'axios';
 
 const baseurl = import.meta.env.VITE_BASE_API_URL;
@@ -68,7 +69,7 @@ const handleSubmit = async (e) => {
           onClick={onRequestCallBack}
           className="bg-[#A67C48] text-white w-full py-1 rounded-b-3xl text-center text-lg cursor-pointer shadow-md"
         >
-          +91 90821 64514
+          {contactConfig.displayPhone}
         </div>
 
         <button
@@ -140,7 +141,7 @@ const handleSubmit = async (e) => {
           </div>
            <div className="mt-auto p-6">
         <a
-          href="https://wa.me/919082164514?text=Hi%20this%20side%20satyam%20developer%20how%20can%20i%20help%20you"
+          href={`https://wa.me/${contactConfig.phoneNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-all duration-200 group"

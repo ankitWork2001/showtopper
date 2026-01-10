@@ -1,5 +1,6 @@
 import React from "react";
-import { PhoneCall, MapPin, MessageCircle } from "lucide-react";
+import { PhoneCall, MapPin } from "lucide-react";
+import { contactConfig } from "../config/credential";
 
 const MobileFooter = () => {
   return (
@@ -11,7 +12,7 @@ const MobileFooter = () => {
           SITE VISIT
         </button>
         <a
-          href="https://wa.me/919082164514?text=Hi%20this%20side%20satyam%20developer%20how%20can%20i%20help%20you"
+          href={`https://wa.me/${contactConfig.phoneNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="w-1/3 flex items-center justify-center gap-2 py-3 text-white font-semibold"
@@ -24,7 +25,7 @@ const MobileFooter = () => {
           WHATSAPP
         </a>
         <a
-          href="tel:+919082164514"
+          href={`tel:+${contactConfig.phoneNumber}`}
           className="w-1/3 flex items-center justify-center gap-2 py-3 text-white font-semibold"
         >
           <PhoneCall size={18} />

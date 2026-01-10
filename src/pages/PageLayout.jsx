@@ -19,7 +19,7 @@ const PageLayout = () => {
         <BrowserRouter>
         <Header onBrochureClick={() => setIsInterestFormOpen(true)} />
         <Routes>
-          <Route path="/*" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
         </Routes>
         </BrowserRouter>

@@ -13,9 +13,10 @@ import MobileForm from "../components/MobileForm";
 import MobileFooter from "../components/MobileFooter";
 import BrochureForm from "../components/BrochureForm";
 import OfferPriceForm from "../components/OfferPriceForm";
+import InterestForm from '../components/InterestForm';
 
 const HomePage = () => {
-    
+    const [isInterestFormOpen, setIsInterestFormOpen] = useState(false);
       const [isBrochureFormOpen, setIsBrochureFormOpen] = useState(false);
       const [isOfferPriceFormOpen, setIsOfferPriceFormOpen] = useState(false);
   return (
@@ -26,6 +27,9 @@ const HomePage = () => {
         )}
 
         <Hero onRequestCallBack={() => setIsInterestFormOpen(true)} />
+           {isInterestFormOpen && (
+        <InterestForm onClose={() => setIsInterestFormOpen(false)} />
+      )}
         <MobileForm />
         <About />
 

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { emailKeys } from "../key/key";
+import axios from 'axios';
+
+const baseurl = import.meta.env.VITE_BASE_API_URL;
 
 const MobileForm = () => {
   const [formData, setFormData] = useState({
@@ -13,32 +16,48 @@ const MobileForm = () => {
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showFailureAlert, setShowFailureAlert] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
 
-    emailjs
-      .send(
-        emailKeys.serviceId,
-        emailKeys.templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          mobile: formData.mobile,
-        },
-        emailKeys.publicKey
-      )
-      .then(() => {
-        setShowSuccessAlert(true);
-        setFormData({ name: "", email: "", mobile: "" });
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setShowFailureAlert(true);
-        setLoading(false);
-      });
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setShowSuccessAlert(false);
+  setShowFailureAlert(false);
+
+  try {
+    // 1️⃣ Submit to backend
+    const response = await axios.post(
+      `${baseurl}/forms/submit`,
+      formData
+    );
+
+    if (response.status !== 201) {
+      throw new Error('Backend submission failed');
+    }
+
+    // 2️⃣ Send Email via EmailJS
+    await emailjs.send(
+      emailKeys.serviceId,
+      emailKeys.templateId,
+      {
+        from_name: formData.name,
+        mobile: formData.mobile,
+        from_email: formData.email,
+      },
+      emailKeys.publicKey
+    );
+
+    // 3️⃣ Success
+    setShowSuccessAlert(true);
+    setFormData({ name: '', mobile: '', email: '' });
+
+  } catch (error) {
+    console.error(error);
+    setShowFailureAlert(true);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="block md:hidden bg-white p-4 shadow-lg">

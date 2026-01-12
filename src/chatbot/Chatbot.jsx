@@ -393,7 +393,7 @@ export default function ChatBot({open = true, setOpen}) {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white font-bold text-xl transition hover:scale-110"
+          className="fixed lg:bottom-6 bottom-20 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white font-bold text-xl transition hover:scale-110"
           style={{
             background: "linear-gradient(135deg, #9e7242 0%, #f09051 100%)",
           }}

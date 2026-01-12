@@ -5,6 +5,8 @@ import AdminLayout from "./layouts/AdminLayout";
 import HomePage from "./pages/HomePage";
 import PrivacyPage from "./pages/PrivacyPage";
 import AdminPage from "./pages/AdminPage";
+import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./routes/ProtectedRoutes";
 
 function App() {
   return (
@@ -19,7 +21,12 @@ function App() {
 
         {/* 🔐 Admin Pages */}
         <Route element={<AdminLayout />}>
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/login" element={<LoginPage />} />
+
+          {/* ✅ Protected Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin" element={<AdminPage />} />
+          </Route>
         </Route>
 
       </Routes>

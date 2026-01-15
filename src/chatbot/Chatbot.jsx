@@ -173,7 +173,7 @@ export default function ChatBot({open = true, setOpen}) {
         {
           user_name: data.name,
           user_phone: data.phone,
-          user_email: data.email || '',
+          user_email: data.email || 'Email not provided (This is a chatbot submission)',
           web_url: credentials.web_url,
           web_name: credentials.web_name,
           logo_url: credentials.logo_url,

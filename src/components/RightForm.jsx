@@ -99,14 +99,14 @@ const validateForm = (formData) => {
       <div className="bg-slate-300 flex flex-col items-center">
         <div
           onClick={onRequestCallBack}
-          className="bg-[#A67C48] text-white w-full py-1 rounded-b-3xl text-center text-lg cursor-pointer shadow-md"
+          className="animated-gradient  text-white w-full py-1 rounded-b-3xl text-center text-lg cursor-pointer shadow-md"
         >
           {contactConfig.displayPhone}
         </div>
 
         <button
           onClick={onRequestCallBack}
-          className="mt-1 mb-2 bg-[#A67C48] text-white px-10 py-1 rounded-lg text-lg shadow-inner hover:bg-[#8e693c]"
+          className="mt-1 mb-2 animated-gradient  text-white px-10 py-1 rounded-lg text-lg shadow-inner hover:bg-[#8e693c]"
         >
           Request Call Back
         </button>

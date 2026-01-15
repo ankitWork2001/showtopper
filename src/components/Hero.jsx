@@ -65,7 +65,7 @@ const Hero = ({ onRequestCallBack}) => {
           </div>
 
           {/* Offer Box */}
-          <div className="bg-[#de9051] p-3 rounded-md text-white w-full shadow-lg">
+          <div className="animated-gradient  p-3 rounded-md text-white w-full shadow-lg">
             <div className="flex flex-col gap-2 border-2 border-dashed border-white p-2 text-left">
               <p className="flex gap-2">
                 ◆ EOI Offer 7X Return
@@ -84,7 +84,7 @@ const Hero = ({ onRequestCallBack}) => {
             ₹ On Request
           </div>
 
-          <button onClick={onRequestCallBack} className="bg-[#A67C48] text-white py-2 px-4 rounded-md font-semibold hover:bg-[#8e693c] transition-colors shadow-lg flex items-center gap-2 hover:cursor-pointer">
+          <button onClick={onRequestCallBack} className="animated-gradient text-white py-2 px-4 rounded-md font-semibold transition-colors flex items-center gap-2 hover:cursor-pointer">
             Download Brochure
           </button>
 

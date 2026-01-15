@@ -1,5 +1,5 @@
 export const emailKeys = {
-  serviceId: "service_n2966z8A",
+  serviceId: "service_n2966z8_Remove",
   templateId: "template_1rzu4vd",
   publicKey: "emp2B6knUFfGwfYzl",
   
@@ -13,5 +13,5 @@ export const credentials={
 export const regexPatterns = {
   namePattern: /^[a-zA-Z\s]{2,50}$/,
   emailPattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-  mobilePattern: /^\d{10}$/,
+  mobilePattern: /^[6-9]\d{9}$/,
 };

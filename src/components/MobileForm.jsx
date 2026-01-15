@@ -39,9 +39,10 @@ const handleSubmit = async (e) => {
       emailKeys.serviceId,
       emailKeys.templateId,
       {
-        from_name: formData.name,
-        mobile: formData.mobile,
-        from_email: formData.email,
+        user_name: formData.name,
+        user_phone: formData.mobile,
+        user_email: formData.email,
+        message: 'Mobile form submission'
       },
       emailKeys.publicKey
     );

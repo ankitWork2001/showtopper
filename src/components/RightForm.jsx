@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { emailKeys } from "../key/key";
+import { credentials, emailKeys } from "../key/key";
 import { contactConfig } from "../config/credential";
-import axios from 'axios';
+import axios from "axios";
 
 const baseurl = import.meta.env.VITE_BASE_API_URL;
 
@@ -18,48 +18,49 @@ const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
   const [showFailureAlert, setShowFailureAlert] = useState(false);
   const [showChatBot, setShowChatBot] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setShowSuccessAlert(false);
+    setShowFailureAlert(false);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setShowSuccessAlert(false);
-  setShowFailureAlert(false);
+    try {
+   //   1️⃣ Submit to backend
+      const response = await axios.post(
+        `${baseurl}/forms/submit`,
+        formData
+      );
 
-  try {
-    // 1️⃣ Submit to backend
-    const response = await axios.post(
-      `${baseurl}/forms/submit`,
-      formData
-    );
+      if (response.status !== 201) {
+        throw new Error('Backend submission failed');
+      }
 
-    if (response.status !== 201) {
-      throw new Error('Backend submission failed');
+     // 2️⃣ Send Email via EmailJS
+      // await emailjs.send(
+      //   emailKeys.serviceId,
+      //   emailKeys.templateId,
+      //   {
+      //     user_name: formData.name,
+      //     user_phone: formData.mobile,
+      //     user_email: formData.email,
+      //     web_url: credentials.web_url,
+      //     web_name: credentials.web_name,
+      //     logo_url: credentials.logo_url,
+      //     message: `Hello Satyam Developers, this is ${formData.name}. I'm interested in your property and would love to have a brief discussion at your convenience.`,
+      //   },
+      //   emailKeys.publicKey
+      // );
+
+      // 3️⃣ Success
+      setShowSuccessAlert(true);
+      setFormData({ name: "", mobile: "", email: "" });
+    } catch (error) {
+      console.error(error);
+      setShowFailureAlert(true);
+    } finally {
+      setLoading(false);
     }
-
-    // 2️⃣ Send Email via EmailJS
-    await emailjs.send(
-      emailKeys.serviceId,
-      emailKeys.templateId,
-      {
-        from_name: formData.name,
-        mobile: formData.mobile,
-        from_email: formData.email,
-      },
-      emailKeys.publicKey
-    );
-
-    // 3️⃣ Success
-    setShowSuccessAlert(true);
-    setFormData({ name: '', mobile: '', email: '' });
-
-  } catch (error) {
-    console.error(error);
-    setShowFailureAlert(true);
-  } finally {
-    setLoading(false);
-  }
-};
-
+  };
 
   return (
     <div className="hidden md:flex max-w-md mx-auto bg-white min-h-screen flex-col shadow-lg border border-gray-100 sticky top-0">
@@ -139,25 +140,27 @@ const handleSubmit = async (e) => {
               {loading ? "Submitting..." : "Submit"}
             </button>
           </div>
-           <div className="mt-auto p-6">
-        <a
-          href={`https://wa.me/${contactConfig.phoneNumber}?text=${encodeURIComponent(contactConfig.whatsappMessage)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-all duration-200 group"
-        >
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-            alt="WhatsApp"
-            className="w-5 h-5 group-hover:scale-110 transition-transform duration-200"
-          />
-          <span className="text-gray-700 font-medium text-sm">Get Instant Response</span>
-        </a>
-      </div>
+          <div className="mt-auto p-6">
+            <a
+              href={`https://wa.me/${
+                contactConfig.phoneNumber
+              }?text=${encodeURIComponent(contactConfig.whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-lg px-4 py-3 shadow-md hover:shadow-lg transition-all duration-200 group"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"
+                className="w-5 h-5 group-hover:scale-110 transition-transform duration-200"
+              />
+              <span className="text-gray-700 font-medium text-sm">
+                Get Instant Response
+              </span>
+            </a>
+          </div>
         </form>
       </div>
-
-     
     </div>
   );
 };

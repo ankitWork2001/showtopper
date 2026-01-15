@@ -39,8 +39,10 @@ const handleSubmit = async (e) => {
       emailKeys.serviceId,
       emailKeys.templateId,
       {
-        from_name: formData.name,
-        mobile: formData.mobile,
+        user_name: formData.name,
+        user_phone: formData.mobile,
+        user_email: '',
+        message: 'Offer price request'
       },
       emailKeys.publicKey
     );

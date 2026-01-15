@@ -1,5 +1,5 @@
 export const emailKeys = {
-  serviceId: "service_u81j27l",
-  templateId: "template_f0rxnx6",
-  publicKey: "yrkbTNzZtmcYibhNE",
+  serviceId: "service_n2966z8",
+  templateId: "template_1rzu4vd",
+  publicKey: "emp2B6knUFfGwfYzl",
 };

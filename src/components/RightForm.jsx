@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { credentials, emailKeys } from "../key/key";
+import { credentials, emailKeys, regexPatterns } from "../key/key";
 import { contactConfig } from "../config/credential";
 import axios from "axios";
 
@@ -16,50 +16,81 @@ const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
   const [loading, setLoading] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showFailureAlert, setShowFailureAlert] = useState(false);
-  const [showChatBot, setShowChatBot] = useState(false);
+  const [errors, setErrors] = useState({ name: "", email: "", mobile: "" });
+
+const validateForm = (formData) => {
+  const { name, email, mobile } = formData;
+  const { namePattern, emailPattern, mobilePattern } = regexPatterns;
+  const newErrors = { name: "", email: "", mobile: "" };
+
+  if (!namePattern.test(name)) {
+    newErrors.name = "Name must be 2-50 characters (letters only)";
+  }
+
+  if (email && !emailPattern.test(email)) {
+    newErrors.email = "Invalid email format";
+  }
+
+  if (!mobilePattern.test(mobile)) {
+    newErrors.mobile = "Please enter a valid mobile number";
+  }
+
+  setErrors(newErrors);
+  return !newErrors.name && !newErrors.email && !newErrors.mobile;
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setShowSuccessAlert(false);
     setShowFailureAlert(false);
 
+    if (!validateForm(formData)) {
+      return;
+    }
+
+    setLoading(true);
+    let backendSuccess = false;
+    let emailSuccess = false;
+    // 1️⃣ Submit to backend
     try {
-   //   1️⃣ Submit to backend
-      const response = await axios.post(
-        `${baseurl}/forms/submit`,
-        formData
-      );
-
-      if (response.status !== 201) {
-        throw new Error('Backend submission failed');
+      const response = await axios.post(`${baseurl}/forms/submit`, formData);
+      if (response.status === 201) {
+        backendSuccess = true;
       }
+    } catch (error) {
+      console.error('Backend submission failed:', error);
+    }
 
-     // 2️⃣ Send Email via EmailJS
-      // await emailjs.send(
-      //   emailKeys.serviceId,
-      //   emailKeys.templateId,
-      //   {
-      //     user_name: formData.name,
-      //     user_phone: formData.mobile,
-      //     user_email: formData.email,
-      //     web_url: credentials.web_url,
-      //     web_name: credentials.web_name,
-      //     logo_url: credentials.logo_url,
-      //     message: `Hello Satyam Developers, this is ${formData.name}. I'm interested in your property and would love to have a brief discussion at your convenience.`,
-      //   },
-      //   emailKeys.publicKey
-      // );
+    // 2️⃣ Send Email via EmailJS
+    try {
+      await emailjs.send(
+        emailKeys.serviceId,
+        emailKeys.templateId,
+        {
+          user_name: formData.name,
+          user_phone: formData.mobile,
+          user_email: formData.email,
+          web_url: credentials.web_url,
+          web_name: credentials.web_name,
+          logo_url: credentials.logo_url,
+          message: `Hello Satyam Developers, this is ${formData.name}. I'm interested in your property and would love to have a brief discussion at your convenience.`,
+        },
+        emailKeys.publicKey
+      );
+      emailSuccess = true;
+    } catch (error) {
+      console.error('Email submission failed:', error);
+    }
 
-      // 3️⃣ Success
+    // 3️⃣ Show result
+    if (backendSuccess || emailSuccess) {
       setShowSuccessAlert(true);
       setFormData({ name: "", mobile: "", email: "" });
-    } catch (error) {
-      console.error(error);
+    } else {
       setShowFailureAlert(true);
-    } finally {
-      setLoading(false);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -100,36 +131,44 @@ const RightForm = ({ onRequestCallBack, onChatBotClick }) => {
         )}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required
-            className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
-          />
+          <div>
+            <input
+              type="text"
+              placeholder="Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+              className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
+            />
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+          </div>
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            required
-            className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
-          />
+          <div>
+            <input
+              type="email"
+              placeholder="Email (Optional)"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
+            />
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          </div>
 
-          <input
-            type="tel"
-            placeholder="Mobile"
-            value={formData.mobile}
-            onChange={(e) =>
-              setFormData({ ...formData, mobile: e.target.value })
-            }
-            required
-            className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
-          />
+          <div>
+            <input
+              type="tel"
+              placeholder="Mobile"
+              value={formData.mobile}
+              onChange={(e) =>
+                setFormData({ ...formData, mobile: e.target.value })
+              }
+              required
+              className="w-full border border-gray-400 rounded-lg p-2 outline-none focus:ring-1 focus:ring-[#A67C48]"
+            />
+            {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
+          </div>
 
           <div className="flex justify-center pt-2">
             <button

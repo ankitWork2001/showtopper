@@ -174,7 +174,7 @@ const validateForm = (formData) => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-linear-to-b from-[#B8864E] to-[#D99B5C] text-white px-6 py-2.5 rounded-full text-sm shadow-md hover:opacity-90"
+              className="animated-gradient text-white px-6 py-2.5 rounded-full text-sm shadow-md hover:opacity-90"
             >
               {loading ? "Submitting..." : "Submit"}
             </button>

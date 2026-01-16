@@ -87,6 +87,10 @@ const handleSubmit = async (e) => {
   if (backendSuccess || emailSuccess) {
     setShowSuccessAlert(true);
     setFormData({ name: '', mobile: '', email: '' });
+    // Notify parent that form was submitted
+    setTimeout(() => {
+      onClose(true);
+    }, 2000);
   } else {
     setShowFailureAlert(true);
   }
@@ -101,7 +105,7 @@ const handleSubmit = async (e) => {
       <div className="relative w-full max-w-lg overflow-hidden rounded-xl bg-white shadow-2xl mx-4">
 
         {/* Header */}
-        <div className="relative bg-[#A67C52] py-4 text-center">
+        <div className="relative animated-gradient py-4 text-center">
           <h2 className="text-2xl font-semibold text-white">
             Express Your Interest
           </h2>
@@ -197,7 +201,7 @@ const handleSubmit = async (e) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-linear-to-b from-[#B88A5B] to-[#92643B] text-white text-xl px-16 py-3 rounded-full shadow-lg hover:brightness-110 active:scale-95"
+                className="animated-gradient text-white text-xl px-16 py-3 rounded-full shadow-lg hover:brightness-110 active:scale-95"
               >
                 {loading ? 'Submitting...' : 'Submit'}
               </button>

@@ -485,7 +485,7 @@ export default function ChatBot({open = true, setOpen}) {
         </button>
       )}
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes pulse {
           0%,
           100% {
@@ -495,7 +495,7 @@ export default function ChatBot({open = true, setOpen}) {
             opacity: 1;
           }
         }
-      `}</style>
+      `}} />
     </>
   )
 }
